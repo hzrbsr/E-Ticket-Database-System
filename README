@@ -1,0 +1,44 @@
+# 🎫 E-Ticket Database Management System (MSSQL)
+
+A high-performance, scalable, and professional database schema designed for electronic ticketing systems. This project supports various event types including concerts, sports, theater, and transportation (flights/trains).
+
+## 🚀 Key Features
+
+- **Robust Schema:** Optimized relations between Users, Events, Venues, and Bookings.
+- **Automated Inventory:** Integrated **SQL Triggers** that automatically update seat availability upon ticket purchase or cancellation.
+- **Secure Transactions:** **Stored Procedures** manage the booking logic to ensure data integrity and prevent double-booking (Race Conditions).
+- **Audit Logging:** Comprehensive tracking of ticket scans, status changes, and entry logs.
+- **Flexible Pricing:** Support for multiple pricing tiers (VIP, Standard, Economy) per event.
+
+## 🛠️ Tech Stack
+
+- **Database:** Microsoft SQL Server (MSSQL)
+- **Language:** T-SQL (Transact-SQL)
+- **Concepts:** Triggers, Stored Procedures, Views, Foreign Key Constraints, and Indexing.
+
+## 📊 Database Architecture
+
+
+
+The system architecture is designed to handle high-concurrency environments with a focus on data normalization and query performance.
+
+## 📂 Project Structure
+
+- `/scripts/schema.sql`: Core table structures and constraints.
+- `/scripts/procedures.sql`: Business logic (Booking, Validation, Cancellation).
+- `/scripts/triggers.sql`: Automation for inventory and logging.
+- `/diagrams/`: ER Diagram visualizations.
+
+## ⚙️ Installation & Usage
+
+1. Open **SQL Server Management Studio (SSMS)**.
+2. Create a new database: `CREATE DATABASE ETicketDB;`.
+3. Execute the `schema.sql` script to build the architecture.
+4. (Optional) Run `sample_data.sql` to populate the system with test events and users.
+
+## 📝 Example Query: Checking Event Availability
+
+```sql
+SELECT event_name, venue_name, available_seats 
+FROM vw_active_events 
+WHERE city = 'London';
